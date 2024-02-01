@@ -7,7 +7,7 @@ Pokémon (https://pokeapi.co/api/v2/) y muestre los
 primeros 10 pokémons ordenados por peso,
 número y altura.
 
-Deploy: https://pokeapibarbara.netlify.app/
+
 
 ## Instrucciones de Instalación
 1. Clona el repositorio (https://github.com/BarbaraR06/pokemon2024)
@@ -31,7 +31,7 @@ Deploy: https://pokeapibarbara.netlify.app/
 
 [PokeAPI](https://pokeapi.co/)
 
-Deploy realizado en Netlify
+
 
 
 ![Logo](https://i.blogs.es/82d7ef/pokemon/1366_2000.jpeg)
