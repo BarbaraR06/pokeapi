@@ -3,13 +3,14 @@
 @tailwind utilities;
 
 .card {
-  background-color: #93AEC1;
+  background-color: #93aec1;
   border-radius: 10px;
   margin: 15px;
   padding-left: 50px;
   padding-right: 50px;
   padding-top: 10px;
   padding-bottom: 10px;
+  height: 300px;
 }
 .name {
   color: rgb(255, 255, 255);
@@ -21,4 +22,6 @@
   color: rgb(255, 255, 255);
 }
 
-
+.link {
+  padding-bottom: 20px;
+}

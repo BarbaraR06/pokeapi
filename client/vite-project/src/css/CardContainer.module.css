@@ -6,4 +6,6 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     margin: 0;
+    align-self: center;
+    margin-top: 100px;
 }
