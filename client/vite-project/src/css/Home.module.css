@@ -1,5 +1,14 @@
-.container{
+.containerFiltros{
     display: flex;
     margin-top: 60px;
     margin-bottom: -30px;
+}
+@media screen and (max-width: 600px) {
+    .containerFiltros{
+        display: block;
+        margin-top: 10px;
+        width: 50%;
+        align-items: center;
+    }
+    
 }

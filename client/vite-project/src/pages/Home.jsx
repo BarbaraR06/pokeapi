@@ -60,9 +60,9 @@ const Home = () => {
 
   return (
     <div className={styles.containerHome}>
-      <div className={styles.container}>
+      <div className={styles.containerFiltros}>
         <select
-          class="select select-primary w-full max-w-xs ml-2 mr-4"
+          className="select select-primary w-full max-w-xs ml-2 mr-4"
           value={filter.weight}
           onChange={(event) => handleOrderWeight(event)}
         >
@@ -74,7 +74,7 @@ const Home = () => {
         </select>
 
         <select
-          class="select select-primary w-full max-w-xs ml-2 mr-4"
+          className="select select-primary w-full max-w-xs ml-2 mr-4"
           value={filter.height}
           onChange={(event) => handleOrderHeight(event)}
         >
@@ -86,7 +86,7 @@ const Home = () => {
         </select>
 
         <select
-          class="select select-primary w-full max-w-xs ml-2 mr-4"
+          className="select select-primary w-full max-w-xs ml-2 mr-4"
           value={filter.id}
           onChange={(event) => handleOrderById(event)}
         >
@@ -97,7 +97,7 @@ const Home = () => {
           <option value="min"> Menor </option>
         </select>
 
-        <button class="btn btn-error text-white" onClick={handleClick}>
+        <button className="btn btn-error text-white" onClick={handleClick}>
           Resetear filtros
         </button>
       </div>

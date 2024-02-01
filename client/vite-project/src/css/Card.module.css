@@ -25,3 +25,14 @@
 .link {
   padding-bottom: 20px;
 }
+
+@media screen and (max-width: 600px) {
+  .card {
+    width: 50%;
+    font-size: 50%;
+    height: 150px;
+  }
+  .name{
+    font-size: 10px;
+  }
+}
