@@ -5,8 +5,33 @@ const axios = require("axios");
 const getAllPokemons = async () => {
   try {
     const response = await axios.get("https://pokeapi.co/api/v2/pokemon?limit=10");
-    console.log(response.data.results);
-    return response.data.results;
+    const results = response.data.results;
+
+    const pokemonsWithDetails = await Promise.all(
+      results.map(async (pokemon) => {
+        const detailsResponse = await axios.get(pokemon.url);
+        const {
+          id,
+          name,
+          weight,
+          height,
+          sprites: { front_default: image },
+          types,
+        } = detailsResponse.data;
+
+        return {
+          id,
+          name,
+          weight,
+          height,
+          image,
+          types: types.map((type) => type.type.name),
+        };
+      })
+    );
+
+    console.log('Pokémons with details:', pokemonsWithDetails);
+    return pokemonsWithDetails;
   } catch (error) {
     console.error("Error fetching Pokémon data:", error);
     throw error; 
