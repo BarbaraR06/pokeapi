@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { getPokemonById } from "../redux/actions";
+import { getPokemonById, resetDetail } from "../redux/actions";
 import { useEffect } from "react";
 import styles from "../css/Detail.module.css";
 
@@ -11,26 +11,37 @@ const Detail = () => {
 
   useEffect(() => {
     dispatch(getPokemonById(id));
-    return () => {};
+    return () => {
+      dispatch(resetDetail());
+    };
   }, [dispatch, id]);
 
-  const pokemon = useSelector((state) => state.pokemonById);
+  const pokemon = useSelector((state) => state.pokemon) || {};
+  const poke = Array.isArray(pokemon) ? pokemon[0] : pokemon;
 
-  if (!pokemon || Object.keys(pokemon).length === 0) {
-    return <div>Loading...</div>;
+  let types = pokemon.types;
+  if (pokemon.types && pokemon.types.length > 0) {
+    types = pokemon.types.map((type) => type.type.name).join(", ");
   }
+
   return (
-    <div>
-      <div className={styles.container}>
-        <div className={styles.card}>
-          <h2 className={styles.name}>{pokemon.name}</h2>
-          <p className={styles.info}>ID: {pokemon.id}</p>
-          <p className={styles.info}>Weight: {pokemon.weight}</p>
-          <p className={styles.info}>Height: {pokemon.height}</p>
-          <p className={styles.info}>Type: {pokemon.types}</p>
-          <img className={styles.image} src={pokemon.image} alt="pokemon" />
-        </div>
+    <div className="card w-full md:w-1/2 lg:w-1/3 xl:w-1/4 bg-base-100 shadow-xl">
+    <div className="card w-96 bg-base-100 shadow-xl" style={{ backgroundColor: '#b4b8bba6' }}>
+      <figure>
+        <img className={styles.image} src={poke.image} alt="Pokemon" />
+      </figure>
+      <div className="text-center card-body ">
+        {poke?.name && (
+          <h2 className="text-center card-title">
+            {poke.name.toUpperCase()}
+            <div className="badge badge-secondary">{poke.id}</div>
+          </h2>
+        )}
+        <p className="text-left">Weight: {poke?.weight}</p>
+        <p className="text-left">Height: {poke?.height}</p>
+        <p className="text-left">Type: {types}</p>
       </div>
+    </div>
     </div>
   );
 };

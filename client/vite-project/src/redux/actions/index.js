@@ -6,8 +6,14 @@ import {
   ORDER_BY_ID,
   ORDER_BY_HEIGHT,
   RESET,
+  RESET_DETAIL,
 } from "../actionTypes";
 
+export const resetDetail = () => {
+  return {
+    type: RESET_DETAIL, 
+  };
+};
 
 export const getPokemons = () => {
   return async (dispatch) => {

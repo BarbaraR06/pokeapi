@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Card = ({ image, name, id, weight, height, type }) => {
   return (
-    <Link to={`/pokemons/${id}`} className={styles.cardLink}>
+    <Link to={`/${id}`} className={styles.cardLink}>
       <div className={styles.card}>
         <img src={image} alt="pokemon" />
         <h2 className={styles.name}>{name}</h2>

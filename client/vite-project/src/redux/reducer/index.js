@@ -5,19 +5,14 @@ import {
   ORDER_BY_ID,
   ORDER_BY_HEIGHT,
   RESET,
+  RESET_DETAIL,
 } from "../actionTypes";
 
 const initialState = {
   pokemons: [],
-  pokemon: {
-    id: 0,
-    name: "",
-    weight: 0,
-    height: 0,
-    image: "",
-    types: [],
-  },
+  pokemon: {},
   order: "default",
+  types: [],
 };
 
 const reducer = (state = initialState, action) => {
@@ -103,6 +98,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         pokemons: [],
+      };
+      case RESET_DETAIL:
+      return {
+        ...state,
+        dogDetail: {},
       };
     default:
       return { ...state };
