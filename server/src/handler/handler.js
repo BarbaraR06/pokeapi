@@ -1,7 +1,6 @@
 const {
     getAllPokemons,
     getPokemonById,
-    getPokemonByParam,
 } = require("../controller/controller");
 
 // GET ALL POKEMONS
@@ -23,15 +22,8 @@ const getPokemonByIdHandler = async (req, res) => {
     res.status(200).json(pokemon);
 };
 
-// GET POKEMON BY PARAM
-const getPokemonByParamHandler = async (req, res) => {
-    const { param } = req.params;
-    const pokemon = await getPokemonByParam(param);
-    res.status(200).json(pokemon);
-}
 
 module.exports = {
     getAllPokemonsHandler,
     getPokemonByIdHandler,
-    getPokemonByParamHandler
 }

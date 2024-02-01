@@ -9,7 +9,14 @@ import {
 
 const initialState = {
   pokemons: [],
-  pokemon: {},
+  pokemon: {
+    id: 0,
+    name: "",
+    weight: 0,
+    height: 0,
+    image: "",
+    types: [],
+  },
   order: "default",
 };
 
@@ -24,6 +31,7 @@ const reducer = (state = initialState, action) => {
       };
 
     case GET_POKEMON_BY_ID:
+      console.log(action.payload);
       return {
         ...state,
         pokemon: action.payload,

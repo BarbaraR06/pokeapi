@@ -62,14 +62,8 @@ const getPokemonById = async (id) => {
 
 //GET POKEMON BY PARAM
 
-const getPokemonByParam = async (param) => {
-  const response = await axios.get(`https://pokeapi.co/api/v2/pokemon?${param}`);
-  return response.data.sort((a, b) => a.weight - b.weight);
-}
-
 
 module.exports = {
   getAllPokemons,
   getPokemonById,
-  getPokemonByParam,
 }
