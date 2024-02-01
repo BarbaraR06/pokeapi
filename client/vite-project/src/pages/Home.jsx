@@ -8,7 +8,7 @@ import {
   orderByID,
 } from "../redux/actions";
 import CardContainer from "../components/CardContainer";
-//import styles from './Home.module.css';
+import styles from '../css/Home.module.css';
 
 const Home = () => {
     const dispatch = useDispatch();
@@ -28,6 +28,7 @@ const Home = () => {
     };
   
     const handleOrderHeight = (event) => {
+        console.log("handleOrderHeight called with:", event.target.value);
       dispatch(orderByHeight(event.target.value));
       setFilter({
         ...filter,
@@ -59,19 +60,34 @@ const Home = () => {
     }, [dispatch]);
   
     return (
-      <div>
-        <div>
-          <select value={filter.weight} onChange={(event) => handleOrderWeight(event)}>
+      <div className={styles.containerHome}>
+        <div className={styles.container}>
+          <select  class="select select-primary w-full max-w-xs ml-2 mr-4" value={filter.weight} onChange={(event) => handleOrderWeight(event)}>
             <option value="" disabled defaultValue>
-              Sort by weight
+              Ordenar por peso
             </option>
-            <option value="min"> Lighter </option>
-            <option value="max"> Heavier </option>
+            <option value="min"> Más liviano </option>
+            <option value="max"> Más pesado </option>
           </select>
-  
-          <button onClick={handleClick}>Reset Filters</button>
+
+          <select  class="select select-primary w-full max-w-xs ml-2 mr-4" value={filter.height} onChange={(event) => handleOrderHeight(event)}>
+            <option value="" disabled defaultValue>
+              Ordenar por altura
+            </option>
+            <option value="max"> Más alto </option>
+            <option value="min"> Más bajo </option>
+          </select>
+
+          <select  class="select select-primary w-full max-w-xs ml-2 mr-4"value={filter.id} onChange={(event) => handleOrderById(event)}>
+            <option value="" disabled defaultValue>
+              Ordenar por ID
+            </option>
+            <option value="max"> Mayor </option>
+            <option value="min"> Menor </option>
+          </select>
+
+          <button class="btn btn-error text-white" onClick={handleClick}>Resetear filtros</button>
         </div>
-  
         <CardContainer />
       </div>
     );
